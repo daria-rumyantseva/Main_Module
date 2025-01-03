@@ -4,6 +4,7 @@
 #include <winsock2.h> // Библиотека для работы с сокетами
 #include <jwt-cpp/jwt.h> // Библиотека для jwt токенов
 #include <libpq++> // Библиотека для работы с бд
+#include <pqxx/pqxx> // Подключаем библиотеку pqxx
 #include <sqlpp/sqlpp.hpp> // Библиотека для работы с postgreSQL
 
 #pragma comment(lib, "ws2_32.lib")
@@ -127,6 +128,25 @@ int main() {
         // Выполнение запроса (например, получение/создание/изменение данных)
         const std::string success_message = "Action performed successfully.";
         send(ClientConn, success_message.c_str(), success_message.size(), 0);
+
+        // Подключение базы данных
+        try {
+            pqxx::connection C("dbname=postgres user=postgres password=1111 hostaddr=localhost port=5432");
+            if (C.is_open()) {
+                std::cout << "Opened database successfully: " << C.dbname() << std::endl;
+            } else {
+                std::cout << "Can't open database" << std::endl;
+                return 1;
+            }
+ 
+            // Здесь можно выполнять SQL-запросы
+ 
+            C.disconnect();
+        } catch (const std::exception &e) {
+            std::cerr << e.what() << std::endl;
+            return 1;
+        }
+        return 0;
     }
 
     // Закрытие сокетов и очистка
