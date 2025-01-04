@@ -1,0 +1,10 @@
+^C:\USERS\SEKVO\ONEDRIVE\РАБОЧИЙ СТОЛ\MAIN.MODULE\BUILD\CMAKEFILES\62CE3ECC7061A9044E17F8EB2014267E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/sekvo/OneDrive/Рабочий стол/main.module" "-BC:/Users/sekvo/OneDrive/Рабочий стол/main.module/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/MainServer.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

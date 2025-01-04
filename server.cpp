@@ -1,13 +1,18 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <winsock2.h> // Библиотека для работы с сокетами
 #include <jwt-cpp/jwt.h> // Библиотека для jwt токенов
-#include <libpq++> // Библиотека для работы с бд
-#include <pqxx/pqxx> // Подключаем библиотеку pqxx
-#include <sqlpp/sqlpp.hpp> // Библиотека для работы с postgreSQL
+#include <libpq-fe.h> // Библиотека для работы с postgreSQL
+//#include <pqxx/pqxx> // Подключаем библиотеку pqxx
+#include <sqlpp11/sqlpp11.h> // Библиотека для работы с postgreSQL
+
+
 
 #pragma comment(lib, "ws2_32.lib")
+
+#include <winsock2.h> // Библиотека для работы с сокетами
+
+
 
 // Функция для проверки JWT токена
 bool validate_jwt(const std::string& token, const std::string& secret, const std::string& required_permission) {
@@ -140,6 +145,30 @@ int main() {
             }
  
             // Здесь можно выполнять SQL-запросы
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
             C.disconnect();
         } catch (const std::exception &e) {

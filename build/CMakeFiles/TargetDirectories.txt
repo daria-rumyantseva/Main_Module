@@ -1,0 +1,3 @@
+C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/main_server.dir
+C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/ZERO_CHECK.dir
