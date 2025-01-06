@@ -1,50 +1,149 @@
+#undef min
+#undef max
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <thread>
+#include <iomanip> // Библиотека для красивого вывода
 #include <jwt-cpp/jwt.h> // Библиотека для jwt токенов
-#include <libpq-fe.h> // Библиотека для работы с postgreSQL
+//#include <libpq-fe.h> // Библиотека для работы с PostgreSQL
 //#include <pqxx/pqxx> // Подключаем библиотеку pqxx
-#include <sqlpp11/sqlpp11.h> // Библиотека для работы с postgreSQL
+//#include <sqlpp11/sqlpp11.h> // Библиотека для работы с SQL в C++
 
 
-
+//#include <date/date.h>
 #pragma comment(lib, "ws2_32.lib")
 
 #include <winsock2.h> // Библиотека для работы с сокетами
 
+// Функция для вывода красивого текста
+void beautyPrint(SOCKET soc, std::string text)
+{
+    std::cout << '[' << std::setfill(' ') << std::setw(7) << soc << "] " << text << std::endl;
+}
+
+// Функция для отправки сообщений пользователю
+void sendToUser(SOCKET clientSocket, int code, std::string message)
+{
+    std::ostringstream responseStream;
+    responseStream << "HTTP/1.1 " << code << " Forbidden\r\n"
+                   << "\r\n"
+                   << message;
+
+    // Преобразуем поток в строку
+    std::string httpResponse = responseStream.str();
+
+    // Отправляем ответ клиенту
+    send(clientSocket, httpResponse.c_str(), httpResponse.size(), 0);
+}
+
+// Функция для получения токена из запроса клиента
+std::string findToken(std::string message)
+{
+    std::string token = "";
+
+    size_t bearerPos = message.find("Bearer ");
+    if (bearerPos != std::string::npos) {
+        token = message.substr(bearerPos + 7);
+    }
+
+    size_t cut_pos = token.size();
+    if (token.find(' ') != std::string::npos) {
+        if (cut_pos > token.find(' '))
+            cut_pos = token.find(' ');
+    }
+    if (token.find(' ') != std::string::npos) {
+        if (cut_pos > token.find('\n'))
+            cut_pos = token.find('\n');
+    }
+    if (token.find(' ') != std::string::npos) {
+        if (cut_pos > token.find('\r'))
+            cut_pos = token.find('\r');
+    }
+
+    token = token.substr(0, cut_pos);
+
+    return token;
+}
 
 
 // Функция для проверки JWT токена
-bool validate_jwt(const std::string& token, const std::string& secret, const std::string& required_permission) {
+std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> CheckToken(SOCKET clientSocket, char* message, int msgSize)
+{
+    std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> payload;
+    std::string secret = "key";
+
+    beautyPrint(clientSocket, "Find token...");
+    std::string token = findToken(message);
+
+    if (token == "")
+    {
+        beautyPrint(clientSocket, "Token not found.");
+        return payload;
+    }
+
+    // Выполняем проверку подписи токена ключом SECRET
+    jwt::decoded_jwt<jwt::traits::kazuho_picojson> decoded_token = jwt::decode(token);
     try {
-        // Расшифровка JWT токена
-        auto dec_obj = jwt::decode(token);
+        jwt::verifier<jwt::default_clock, jwt::traits::kazuho_picojson> verifier = jwt::verify().allow_algorithm(jwt::algorithm::hs256{ secret });
+        verifier.verify(decoded_token);
+        // Если токен валидный, проходим дальше иначе попадаем в catch
+        payload = decoded_token.get_payload_claims();
+    }catch (...) {
+        beautyPrint(clientSocket, "Invalid token.");
+    }
 
-        // Проверка подписи
-        dec_obj.verify(jwt::params::algorithms::hs256{secret});
+    return payload;
+}
 
-        // Проверка срока действия токена
-        auto exp = dec_obj.payload().get_claim_value_by_name("exp").as_int();
-        if (exp < time(nullptr)) {
-            std::cerr << "Token has expired." << std::endl;
-            return false;
+// Функция для обработки клиента
+void handle_client(SOCKET client_socket) {
+    std::cout << "Client connected." << std::endl;
+    while (true) {
+        std::vector<char> clientBuff(1024);
+        const int msgSize = 2048;
+        char* message = new char[msgSize];
+        int bytesReceived = recv(client_socket, clientBuff.data(), clientBuff.size(), 0);
+
+        if (bytesReceived == SOCKET_ERROR) {
+             beautyPrint(client_socket, "Receive failed. Error #" + WSAGetLastError());
+            break;
         }
 
-        // Проверка разрешений
-        auto permissions = dec_obj.payload().get_claim_value_by_name("permissions").as_array();
-        for (const auto& perm : permissions) {
-            if (perm.as_string() == required_permission) {
-                return true; // Разрешение найдено
-            }
+        // Проверка на завершение общения
+        if (bytesReceived > 0 && clientBuff[0] == 'x' && clientBuff[1] == 'x' && clientBuff[2] == 'x') {
+            std::cout << "Client requested to close the connection." << std::endl;
+            break; // Выход из цикла
         }
 
-        std::cerr << "Permission '" << required_permission << "' is missing." << std::endl;
-        return false;
+        // Обработка полученных данных
+        std::string enc_str(clientBuff.begin(), clientBuff.begin() + bytesReceived);
+        // Пример для теста — требуемое разрешение для выполнения действия
+        std::string required_permission = "perform_action";
+
+        auto permission = CheckToken(client_socket, message, msgSize);
+        if (permission.empty())
+        {
+            beautyPrint(client_socket, "Error: 401");
+            beautyPrint(client_socket, "Send code 401");
+            sendToUser(client_socket, 401, "Access Denied");
+            closesocket(client_socket);
+            beautyPrint(client_socket, "Socket closed.");
+            continue;
+        }
+        beautyPrint(client_socket, "Token correct: 200");
+        beautyPrint(client_socket, "Send code 200");
+        sendToUser(client_socket, 200, "TODO");
+        closesocket(client_socket);
+        beautyPrint(client_socket, "Socket closed.");
+
+        // Здесь можно добавить логику обработки запроса после успешной валидации токена
     }
-    catch (const std::exception& e) {
-        std::cerr << "JWT validation error: " << e.what() << std::endl;
-        return false;
-    }
+
+    closesocket(client_socket);
+    std::cout << "Client disconnected." << std::endl;
 }
 
 int main() {
@@ -64,7 +163,7 @@ int main() {
     }
 
     // Привязка сокета
-    sockaddr_in serverAddr;
+    sockaddr_in serverAddr{};
     serverAddr.sin_family = AF_INET; 
     serverAddr.sin_port = htons(8080); // Порт сокета используемый для подключения
     serverAddr.sin_addr.s_addr = INADDR_ANY;
@@ -98,90 +197,21 @@ int main() {
     std::cout << "Client connected." << std::endl;
 
     while (true) {
-        std::vector<char> clientBuff(1024);
-        int bytesReceived = recv(ClientConn, clientBuff.data(), clientBuff.size(), 0);
-
-        if (bytesReceived == SOCKET_ERROR) {
-            std::cerr << "Receive failed. Error #" << WSAGetLastError() << std::endl;
-            break;
+        SOCKET ClientConn = accept(ServSock, nullptr, nullptr);
+        if (ClientConn == INVALID_SOCKET) 
+        { std::cerr << "Accept failed. Error #" << WSAGetLastError() << std::endl;
+            continue; // Продолжаем ожидание следующего клиента
         }
 
-        // Проверка на завершение общения
-        if (bytesReceived > 0 && clientBuff[0] == 'x' && clientBuff[1] == 'x' && clientBuff[2] == 'x') {
-            std::cout << "Client requested to close the connection." << std::endl;
-            break; // Выход из цикла
-        }
+        // Создаем новый поток для обработки клиента
+        std::thread(handle_client, ClientConn).detach();
 
-        // Обработка полученных данных
-        std::string enc_str(clientBuff.begin(), clientBuff.begin() + bytesReceived);
-
-        // Пример для теста — требуемое разрешение для выполнения действия
-        std::string required_permission = "perform_action";
-
-        // Секрет для проверки подписи
-        std::string secret = "secret"; 
-
-        // Проверка JWT токена
-        if (!validate_jwt(enc_str, secret, required_permission)) {
-            // Если токен не прошел проверку, отправим ошибку
-            const std::string error_message = "Unauthorized (401)";
-            send(ClientConn, error_message.c_str(), error_message.size(), 0);
-            continue; // Переход к следующему циклу
-        }
-
-        // Если токен валидный и разрешение на действие есть
-        // Выполнение запроса (например, получение/создание/изменение данных)
-        const std::string success_message = "Action performed successfully.";
-        send(ClientConn, success_message.c_str(), success_message.size(), 0);
-
-        // Подключение базы данных
-        try {
-            pqxx::connection C("dbname=postgres user=postgres password=1111 hostaddr=localhost port=5432");
-            if (C.is_open()) {
-                std::cout << "Opened database successfully: " << C.dbname() << std::endl;
-            } else {
-                std::cout << "Can't open database" << std::endl;
-                return 1;
-            }
- 
-            // Здесь можно выполнять SQL-запросы
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-            C.disconnect();
-        } catch (const std::exception &e) {
-            std::cerr << e.what() << std::endl;
-            return 1;
-        }
-        return 0;
     }
 
-    // Закрытие сокетов и очистка
+    // Закрытие соединения и очистка Winsock
     closesocket(ClientConn);
+    closesocket(ServSock);
     WSACleanup();
+
     return 0;
 }
-
-

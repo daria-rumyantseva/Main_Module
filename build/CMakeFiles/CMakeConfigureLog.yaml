@@ -24,7 +24,7 @@ events:
       The output was:
       0
       Версия MSBuild 17.11.9+a69bbaaf5 для .NET Framework
-      Сборка начата 04.01.2025 17:28:43.
+      Сборка начата 06.01.2025 16:08:41.
       
       Проект "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -34,12 +34,21 @@ events:
       InitializeBuildStatus:
         Создание "Debug\\CompilerIdC.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
         Обращение к "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "C:\\src\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
       ClCompile:
-        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
         CMakeCCompilerId.c
       Link:
-        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\src\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
         CompilerIdC.vcxproj -> C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        "pwsh.exe" не является внутренней или внешней
+        командой, исполняемой программой или пакетным файлом.
+        Выход из команды "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"" с кодом 9009.
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -53,7 +62,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.90
+      Прошло времени 00:00:07.58
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -79,7 +88,7 @@ events:
       The output was:
       0
       Версия MSBuild 17.11.9+a69bbaaf5 для .NET Framework
-      Сборка начата 04.01.2025 17:28:44.
+      Сборка начата 06.01.2025 16:08:49.
       
       Проект "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
@@ -89,12 +98,21 @@ events:
       InitializeBuildStatus:
         Создание "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
         Обращение к "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "C:\\src\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
       ClCompile:
-        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
         CMakeCXXCompilerId.cpp
       Link:
-        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\src\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
         CompilerIdCXX.vcxproj -> C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        "pwsh.exe" не является внутренней или внешней
+        командой, исполняемой программой или пакетным файлом.
+        Выход из команды "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" с кодом 9009.
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\Рабочий стол\\main.module\\build\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -108,7 +126,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.90
+      Прошло времени 00:00:07.54
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -127,8 +145,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-qrzlny"
-      binary: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-qrzlny"
+      source: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-ozdbfg"
+      binary: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-ozdbfg"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -137,40 +155,49 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/CMakeScratch/TryCompile-qrzlny'
+        Change Dir: 'C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/CMakeScratch/TryCompile-ozdbfg'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bf3fe.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_73fa2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 04.01.2025 17:28:46.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 06.01.2025 16:08:57.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrzlny\\cmTC_bf3fe.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\cmTC_73fa2.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_bf3fe.dir\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_73fa2.dir\\Debug\\".
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrzlny\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\src\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bf3fe.dir\\Debug\\\\" /Fd"cmTC_bf3fe.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_73fa2.dir\\Debug\\\\" /Fd"cmTC_73fa2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.41.34123 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bf3fe.dir\\Debug\\\\" /Fd"cmTC_bf3fe.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          cl /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_73fa2.dir\\Debug\\\\" /Fd"cmTC_73fa2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrzlny\\Debug\\cmTC_bf3fe.exe" /INCREMENTAL /ILK:"cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-qrzlny/Debug/cmTC_bf3fe.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-qrzlny/Debug/cmTC_bf3fe.lib" /MACHINE:X64  /machine:x64 cmTC_bf3fe.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_bf3fe.vcxproj -> C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrzlny\\Debug\\cmTC_bf3fe.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\cmTC_73fa2.exe" /INCREMENTAL /ILK:"cmTC_73fa2.dir\\Debug\\cmTC_73fa2.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-ozdbfg/Debug/cmTC_73fa2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-ozdbfg/Debug/cmTC_73fa2.lib" /MACHINE:X64  /machine:x64 cmTC_73fa2.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_73fa2.vcxproj -> C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\cmTC_73fa2.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\cmTC_73fa2.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\cmTC_73fa2.write.1u.tlog" "cmTC_73fa2.dir\\Debug\\vcpkg.applocal.log"
+          "pwsh.exe" ╨╜╨╡ ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╡╨╣ ╨╕╨╗╨╕ ╨▓╨╜╨╡╤И╨╜╨╡╨╣
+          ╨║╨╛╨╝╨░╨╜╨┤╨╛╨╣, ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╛╨╣ ╨╕╨╗╨╕ ╨┐╨░╨║╨╡╤В╨╜╤Л╨╝ ╤Д╨░╨╣╨╗╨╛╨╝.
+          ╨Т╤Л╤Е╨╛╨┤ ╨╕╨╖ ╨║╨╛╨╝╨░╨╜╨┤╤Л "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\cmTC_73fa2.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\cmTC_73fa2.write.1u.tlog" "cmTC_73fa2.dir\\Debug\\vcpkg.applocal.log"" ╤Б ╨║╨╛╨┤╨╛╨╝ 9009.
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\Debug\\cmTC_73fa2.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\cmTC_73fa2.write.1u.tlog" "cmTC_73fa2.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_bf3fe.dir\\Debug\\cmTC_bf3fe.tlog\\cmTC_bf3fe.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qrzlny\\cmTC_bf3fe.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_73fa2.dir\\Debug\\cmTC_73fa2.tlog\\cmTC_73fa2.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozdbfg\\cmTC_73fa2.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.67
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:07.43
         
       exitCode: 0
   -
@@ -210,8 +237,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-55kpjo"
-      binary: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-55kpjo"
+      source: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-c6zyfz"
+      binary: "C:/Users/sekvo/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/main.module/build/CMakeFiles/CMakeScratch/TryCompile-c6zyfz"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -221,40 +248,49 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/CMakeScratch/TryCompile-55kpjo'
+        Change Dir: 'C:/Users/sekvo/OneDrive/Рабочий стол/main.module/build/CMakeFiles/CMakeScratch/TryCompile-c6zyfz'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a88ad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_53390.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 04.01.2025 17:28:47.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 06.01.2025 16:09:05.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-55kpjo\\cmTC_a88ad.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\cmTC_53390.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_a88ad.dir\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_53390.dir\\Debug\\".
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-55kpjo\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_a88ad.dir\\Debug\\cmTC_a88ad.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_a88ad.dir\\Debug\\cmTC_a88ad.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_a88ad.dir\\Debug\\cmTC_a88ad.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\src\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a88ad.dir\\Debug\\\\" /Fd"cmTC_a88ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_53390.dir\\Debug\\\\" /Fd"cmTC_53390.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.41.34123 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a88ad.dir\\Debug\\\\" /Fd"cmTC_a88ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /I"C:\\src\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_53390.dir\\Debug\\\\" /Fd"cmTC_53390.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-55kpjo\\Debug\\cmTC_a88ad.exe" /INCREMENTAL /ILK:"cmTC_a88ad.dir\\Debug\\cmTC_a88ad.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-55kpjo/Debug/cmTC_a88ad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-55kpjo/Debug/cmTC_a88ad.lib" /MACHINE:X64  /machine:x64 cmTC_a88ad.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_a88ad.vcxproj -> C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-55kpjo\\Debug\\cmTC_a88ad.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\cmTC_53390.exe" /INCREMENTAL /ILK:"cmTC_53390.dir\\Debug\\cmTC_53390.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-c6zyfz/Debug/cmTC_53390.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sekvo/OneDrive/╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗/main.module/build/CMakeFiles/CMakeScratch/TryCompile-c6zyfz/Debug/cmTC_53390.lib" /MACHINE:X64  /machine:x64 cmTC_53390.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_53390.vcxproj -> C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\cmTC_53390.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\cmTC_53390.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\cmTC_53390.write.1u.tlog" "cmTC_53390.dir\\Debug\\vcpkg.applocal.log"
+          "pwsh.exe" ╨╜╨╡ ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╡╨╣ ╨╕╨╗╨╕ ╨▓╨╜╨╡╤И╨╜╨╡╨╣
+          ╨║╨╛╨╝╨░╨╜╨┤╨╛╨╣, ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╛╨╣ ╨╕╨╗╨╕ ╨┐╨░╨║╨╡╤В╨╜╤Л╨╝ ╤Д╨░╨╣╨╗╨╛╨╝.
+          ╨Т╤Л╤Е╨╛╨┤ ╨╕╨╖ ╨║╨╛╨╝╨░╨╜╨┤╤Л "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\cmTC_53390.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\cmTC_53390.write.1u.tlog" "cmTC_53390.dir\\Debug\\vcpkg.applocal.log"" ╤Б ╨║╨╛╨┤╨╛╨╝ 9009.
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\Debug\\cmTC_53390.exe" "C:\\src\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\cmTC_53390.write.1u.tlog" "cmTC_53390.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_a88ad.dir\\Debug\\cmTC_a88ad.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_a88ad.dir\\Debug\\cmTC_a88ad.tlog\\cmTC_a88ad.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-55kpjo\\cmTC_a88ad.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_53390.dir\\Debug\\cmTC_53390.tlog\\cmTC_53390.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\sekvo\\OneDrive\\╨а╨░╨▒╨╛╤З╨╕╨╣ ╤Б╤В╨╛╨╗\\main.module\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c6zyfz\\cmTC_53390.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.56
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:07.49
         
       exitCode: 0
   -
