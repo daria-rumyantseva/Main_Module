@@ -8,7 +8,7 @@
 #include <thread>
 #include <iomanip> // Библиотека для красивого вывода
 #include <jwt-cpp/jwt.h> // Библиотека для jwt токенов
-//#include <libpq-fe.h> // Библиотека для работы с PostgreSQL
+#include <libpq-fe.h> // Библиотека для работы с PostgreSQL
 //#include <pqxx/pqxx> // Подключаем библиотеку pqxx
 //#include <sqlpp11/sqlpp11.h> // Библиотека для работы с SQL в C++
 
@@ -139,6 +139,20 @@ void handle_client(SOCKET client_socket) {
         closesocket(client_socket);
         beautyPrint(client_socket, "Socket closed.");
 
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
         // Здесь можно добавить логику обработки запроса после успешной валидации токена
     }
 
@@ -165,7 +179,7 @@ int main() {
     // Привязка сокета
     sockaddr_in serverAddr{};
     serverAddr.sin_family = AF_INET; 
-    serverAddr.sin_port = htons(8080); // Порт сокета используемый для подключения
+    serverAddr.sin_port = htons(1111); // Порт сокета используемый для подключения
     serverAddr.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(ServSock, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
