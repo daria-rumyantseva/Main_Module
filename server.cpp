@@ -9,11 +9,8 @@
 #include <iomanip> // Библиотека для красивого вывода
 #include <jwt-cpp/jwt.h> // Библиотека для jwt токенов
 #include <libpq-fe.h> // Библиотека для работы с PostgreSQL
-//#include <pqxx/pqxx> // Подключаем библиотеку pqxx
-//#include <sqlpp11/sqlpp11.h> // Библиотека для работы с SQL в C++
+#include <requests.h>
 
-
-//#include <date/date.h>
 #pragma comment(lib, "ws2_32.lib")
 
 #include <winsock2.h> // Библиотека для работы с сокетами
@@ -39,31 +36,30 @@ void sendToUser(SOCKET clientSocket, int code, std::string message)
     send(clientSocket, httpResponse.c_str(), httpResponse.size(), 0);
 }
 
+// Функция для получения самого запроса клиента
+std::string findRequest(std::string message)
+{
+    std::string request = "";
+    size_t requestPos = message.find("request:");
+    if (requestPos != std::string::npos) {
+        size_t start = requestPos + 8; // длина "request:" = 8
+        size_t end = message.find('\n', start);
+        request = message.substr(start, end - start);
+    }
+
+    return request;
+}
+
+
 // Функция для получения токена из запроса клиента
 std::string findToken(std::string message)
 {
     std::string token = "";
-
-    size_t bearerPos = message.find("Bearer ");
-    if (bearerPos != std::string::npos) {
-        token = message.substr(bearerPos + 7);
+    size_t tokenPos = message.find("request:");
+    if (tokenPos != std::string::npos) {
+        size_t start = tokenPos + 6; // длина "token:" = 6
+        token = message.substr(start);
     }
-
-    size_t cut_pos = token.size();
-    if (token.find(' ') != std::string::npos) {
-        if (cut_pos > token.find(' '))
-            cut_pos = token.find(' ');
-    }
-    if (token.find(' ') != std::string::npos) {
-        if (cut_pos > token.find('\n'))
-            cut_pos = token.find('\n');
-    }
-    if (token.find(' ') != std::string::npos) {
-        if (cut_pos > token.find('\r'))
-            cut_pos = token.find('\r');
-    }
-
-    token = token.substr(0, cut_pos);
 
     return token;
 }
@@ -97,6 +93,37 @@ std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> CheckT
 
     return payload;
 }
+
+// Функция для проверки запроса
+bool requestVerification() {
+    return true;
+}
+
+
+// Функция для подключения к базе данных
+void executeQuery(const std::string& conninfo, const std::string& query) {
+    // Подключение к базе данных
+    PGconn* conn = PQconnectdb(conninfo.c_str());
+
+    // Проверка на успешное подключение
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "Connection to database failed: " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
+        return;
+    }
+    // Проверка на наличие разрешения для выполнения запроса
+
+    // Выполнение запроса в случае наличия разрешения
+
+
+
+
+    
+
+    // Освобождение ресурсов
+    PQfinish(conn);
+}
+
 
 // Функция для обработки клиента
 void handle_client(SOCKET client_socket) {
@@ -144,7 +171,10 @@ void handle_client(SOCKET client_socket) {
 
 
 
+        std::string conninfo = "dbname=postgres user=postgres password=1111 hostaddr=localhost port=5432";
+        std::string query = findRequest(message); // Замените на ваш SQL-запрос
 
+        executeQuery(conninfo, query);
 
 
 
@@ -179,7 +209,7 @@ int main() {
     // Привязка сокета
     sockaddr_in serverAddr{};
     serverAddr.sin_family = AF_INET; 
-    serverAddr.sin_port = htons(1111); // Порт сокета используемый для подключения
+    serverAddr.sin_port = htons(8080); // Порт сокета используемый для подключения
     serverAddr.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(ServSock, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
