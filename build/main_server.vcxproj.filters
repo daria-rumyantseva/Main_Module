@@ -9,6 +9,9 @@
     <CustomBuild Include="C:\Users\sekvo\OneDrive\Рабочий стол\main.module\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\sekvo\OneDrive\Рабочий стол\main.module\SQL.pgsql" />
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4C8732A1-DD9B-33DD-B1B8-2A7EA9E75162}</UniqueIdentifier>
     </Filter>

@@ -69,7 +69,7 @@ std::string findToken(std::string message)
 std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> CheckToken(SOCKET clientSocket, char* message, int msgSize)
 {
     std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> payload;
-    std::string secret = "key";
+    std::string secret = "33c52f27d5ac48dfb3d2a6422f06b4a6";
 
     beautyPrint(clientSocket, "Find token...");
     std::string token = findToken(message);
@@ -136,14 +136,8 @@ std::string getUserIdFromToken(const std::string& token) {
     }
 }
 
-// Функция для проверки запроса
-bool requestVerification() {
-    return true;
-}
-
-
 // Функция для подключения к базе данных
-void executeQuery(const std::string& conninfo, const std::string& query) {
+void executeQuery(const std::string& conninfo, const std::string& query, const std::string& role, const int& id) {
     // Подключение к базе данных
     PGconn* conn = PQconnectdb(conninfo.c_str());
 
@@ -153,15 +147,13 @@ void executeQuery(const std::string& conninfo, const std::string& query) {
         PQfinish(conn);
         return;
     }
-    // Проверка на наличие разрешения для выполнения запроса
-
-    
 
 
 
-
-    // Выполнение запроса в случае наличия разрешения
-    executionRequest(query);
+    // Выполнение запроса и проверка на наличие разрешения
+    if (!executionRequest(query, role, id)){
+        std::cerr << "You don't have the required permission: 403" << std::endl;
+    }
 
     // Освобождение ресурсов
     PQfinish(conn);
@@ -206,9 +198,6 @@ void handle_client(SOCKET client_socket) {
 
 
 
-
-
-
         std::string conninfo = "dbname=postgres user=postgres password=1111 hostaddr=localhost port=5432";
         std::string query = findRequest(message); 
         std::string token = findToken(message);
@@ -216,16 +205,7 @@ void handle_client(SOCKET client_socket) {
         std::string user_id = getUserIdFromToken(token);
 
 
-        executeQuery(conninfo, query);
-
-
-
-
-
-
-        
-
-        // Здесь можно добавить логику обработки запроса после успешной валидации токена
+        executeQuery(conninfo, query, user_role, stoi(user_id));
     }
 
     closesocket(client_socket);

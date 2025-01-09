@@ -2,10 +2,8 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,             -- уникальный идентификатор пользователя
     username VARCHAR(255) UNIQUE NOT NULL,  -- имя пользователя
-    first_name VARCHAR(255),               -- имя пользователя
-    last_name VARCHAR(255),                -- фамилия пользователя
-    email VARCHAR(255) UNIQUE,             -- электронная почта
-    password_hash VARCHAR(255),            -- хэш пароля
+    fullname VARCHAR(255),                 -- полное имя пользователя 
+    password VARCHAR(255),                 -- хэш пароля
     roles VARCHAR(255)[],                  -- роли пользователя (можно хранить как массив строк)
     is_blocked BOOLEAN DEFAULT FALSE,      -- заблокирован ли пользователь
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- дата создания

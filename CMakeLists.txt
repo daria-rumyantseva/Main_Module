@@ -9,4 +9,5 @@ link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 add_executable(main_server 
   server.cpp
+  SQL.pgsql
 )
