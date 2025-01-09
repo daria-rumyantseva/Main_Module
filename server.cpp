@@ -94,6 +94,48 @@ std::unordered_map<jwt::traits::kazuho_picojson::string_type, jwt::claim> CheckT
     return payload;
 }
 
+// Функция для определения роли пользователя
+std::string getUserRoleFromToken(const std::string& token) {
+    try {
+        // Декодируем токен
+        auto decodedToken = jwt::decode(token);
+
+        // Извлекаем роль пользователя из токена
+        // Предполагаем, что роль хранится в поле "role"
+        auto claims = decodedToken.get_payload_claims();
+        
+        if (claims.find("role") != claims.end()) {
+            return claims["role"].as_string(); // Получаем значение роли
+        } else {
+            throw std::runtime_error("Role claim not found in token");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error decoding token: " << e.what() << std::endl;
+        return "";
+    }
+}
+
+// Функция для определения id пользователя
+std::string getUserIdFromToken(const std::string& token) {
+    try {
+        // Декодируем токен
+        auto decodedToken = jwt::decode(token);
+
+        // Извлекаем роль пользователя из токена
+        // Предполагаем, что роль хранится в поле "role"
+        auto claims = decodedToken.get_payload_claims();
+        
+        if (claims.find("id") != claims.end()) {
+            return claims["id"].as_string(); // Получаем id
+        } else {
+            throw std::runtime_error("Id claim not found in token");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error decoding token: " << e.what() << std::endl;
+        return "";
+    }
+}
+
 // Функция для проверки запроса
 bool requestVerification() {
     return true;
@@ -113,12 +155,13 @@ void executeQuery(const std::string& conninfo, const std::string& query) {
     }
     // Проверка на наличие разрешения для выполнения запроса
 
-    // Выполнение запроса в случае наличия разрешения
-
-
-
-
     
+
+
+
+
+    // Выполнение запроса в случае наличия разрешения
+    executionRequest(query);
 
     // Освобождение ресурсов
     PQfinish(conn);
@@ -160,11 +203,6 @@ void handle_client(SOCKET client_socket) {
             beautyPrint(client_socket, "Socket closed.");
             continue;
         }
-        beautyPrint(client_socket, "Token correct: 200");
-        beautyPrint(client_socket, "Send code 200");
-        sendToUser(client_socket, 200, "TODO");
-        closesocket(client_socket);
-        beautyPrint(client_socket, "Socket closed.");
 
 
 
@@ -172,7 +210,11 @@ void handle_client(SOCKET client_socket) {
 
 
         std::string conninfo = "dbname=postgres user=postgres password=1111 hostaddr=localhost port=5432";
-        std::string query = findRequest(message); // Замените на ваш SQL-запрос
+        std::string query = findRequest(message); 
+        std::string token = findToken(message);
+        std::string user_role = getUserRoleFromToken(token);
+        std::string user_id = getUserIdFromToken(token);
+
 
         executeQuery(conninfo, query);
 
